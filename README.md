@@ -19,7 +19,7 @@ The app is not hard on your phone's battery. With your saftey coming first, DnD 
 You are free to fork DnD, make changes, improvements and submit Pull Requests.
 Issues are welcome too, once our team gets time they will start working on them.
 As of now, the codefundo++ event is rolling and so your Pull Requests will not be merged, but you are free to submit them, this being [Hacktober](http://hacktoberfest.digitalocean.com) time.
-Before joining this community, make sure you check the [code of conduct page](#CODE_OF_CONDUCT.md).
+Before joining this community, make sure you check the [code of conduct page](CODE_OF_CONDUCT.md).
 # The team
 - [S.Ben Stewart](https://github.com/sbenstewart)
 - [G.Santhosh](https://github.com/gsanthosh98)
