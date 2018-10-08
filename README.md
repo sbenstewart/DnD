@@ -25,4 +25,4 @@ Before joining this community, make sure you check the [code of conduct page](CO
 - [G.Santhosh](https://github.com/gsanthosh98)
 - [Naveen Kumar](https://github.com/muthunaveen555)
 <br>
-**Have a great day :)**
+<b>Have a great day :)</b>
