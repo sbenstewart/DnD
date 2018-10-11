@@ -125,7 +125,7 @@ public class DetectedActivitiesIntentService  extends IntentService {
         String activity1, activity2;
         activity1="In Vehicle";
         activity2="Still";             //"activity_on_bicycle";
-        if(mostProbableActivity.getType() == DetectedActivity.IN_VEHICLE || mostProbableActivity.getType() == DetectedActivity.STILL)
+        if(mostProbableActivity.getType() == DetectedActivity.IN_VEHICLE || mostProbableActivity.getType() == DetectedActivity.ON_BICYCLE)
         {
             MuteAudio();
         }
