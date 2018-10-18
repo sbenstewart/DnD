@@ -56,18 +56,18 @@ body {
     Page Content
 ------------------------------------------*/
 
-.page-content, 
+.page-content,
 section { overflow: hidden; }
 
 /*
-    On Scroll Animations 
+    On Scroll Animations
 ------------------------------------------*/
 
 /*.animated { visibility: hidden; }
 .visible { visibility: visible; }*/
 
 /*
-    Spacing & Alignment 
+    Spacing & Alignment
 ------------------------------------------*/
 
 .roomy-100 {
@@ -461,7 +461,7 @@ Extra height css
     margin-right: 15px;
 }
 .m-l-15{
-    margin-left: 15px; 
+    margin-left: 15px;
 }
 .m-top-10 {
     margin-top: 10px;
@@ -734,9 +734,9 @@ textarea::-ms-input-placeholder{
 }*/
 
 
-.transform_scal_rotate:hover img{ 
-    -webkit-transform: scale(1.1) rotate(4deg); 
-    transform: scale(1.1) rotate(4deg); 
+.transform_scal_rotate:hover img{
+    -webkit-transform: scale(1.1) rotate(4deg);
+    transform: scale(1.1) rotate(4deg);
 }
 
 .culmn{
@@ -788,9 +788,9 @@ textarea::-ms-input-placeholder{
     width: 50px;
     margin-top: -25px;
     margin-left: -25px;
-    -ms-transform: rotate(45deg); 
+    -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg); 
+    transform: rotate(45deg);
     -webkit-animation: loading-center-absolute 1.5s infinite;
     animation: loading-center-absolute 1.5s infinite;
 
@@ -828,7 +828,7 @@ textarea::-ms-input-placeholder{
 }
 
 @keyframes loading-center-absolute {
-    100% { 
+    100% {
         transform:  rotate(-45deg);
         -webkit-transform:  rotate(-45deg);
     }
@@ -843,11 +843,11 @@ textarea::-ms-input-placeholder{
 }
 
 @keyframes object_one {
-    25% { 
+    25% {
         transform: translate(0,-50px) rotate(-180deg);
         -webkit-transform: translate(0,-50px) rotate(-180deg);
-    } 
-    100% { 
+    }
+    100% {
         transform: translate(0,0) rotate(-180deg);
         -webkit-transform: translate(0,0) rotate(-180deg);
     }
@@ -860,11 +860,11 @@ textarea::-ms-input-placeholder{
 }
 
 @keyframes object_two {
-    25% { 
+    25% {
         transform: translate(50px,0) rotate(-180deg);
         -webkit-transform: translate(50px,0) rotate(-180deg);
-    } 
-    100% { 
+    }
+    100% {
         transform: translate(0,0) rotate(-180deg);
         -webkit-transform: translate(0,0) rotate(-180deg);
     }
@@ -876,11 +876,11 @@ textarea::-ms-input-placeholder{
 }
 
 @keyframes object_three {
-    25% { 
+    25% {
         transform:  translate(-50px,0) rotate(-180deg);
         -webkit-transform:  translate(-50px,0) rotate(-180deg);
-    } 
-    100% { 
+    }
+    100% {
         transform: translate(0,0) rotate(-180deg);
         -webkit-transform: rtranslate(0,0) rotate(-180deg);
     }
@@ -893,11 +893,11 @@ textarea::-ms-input-placeholder{
 }
 
 @keyframes object_four {
-    25% { 
-        transform: translate(0,50px) rotate(-180deg); 
-        -webkit-transform: translate(0,50px) rotate(-180deg);  
-    } 
-    100% { 
+    25% {
+        transform: translate(0,50px) rotate(-180deg);
+        -webkit-transform: translate(0,50px) rotate(-180deg);
+    }
+    100% {
         transform: translate(0,0) rotate(-180deg);
         -webkit-transform: translate(0,0) rotate(-180deg);
     }
@@ -1067,19 +1067,19 @@ Screen01 Section style
 }
 .attr_rio,
 .attr_deg{
-    position: absolute; 
+    position: absolute;
     width:55px;
     height: 55px;
     line-height: 55px;
     display: inline-block;
     border-radius: 50%;
 }
-.attr_deg{ 
+.attr_deg{
     top: 10%;
     right: 6%;
     background-color: #ffffff;
 }
-.attr_rio{ 
+.attr_rio{
     bottom:0;
     right:0;
     background-color: #fcec64;
@@ -1092,7 +1092,7 @@ Screen01 Section style
 .attr_deg2,
 .attr_lon,
 .attr_sun{
-    position: absolute; 
+    position: absolute;
     width:90px;
     height: 90px;
     line-height: 90px;
@@ -1100,35 +1100,35 @@ Screen01 Section style
     border-radius: 50%;
 }
 
-.attr_sun{ 
+.attr_sun{
     top: 45%;
     left: 0%;
     background-color: #fc6a42;
 }
-.attr_lon{ 
+.attr_lon{
     top:40%;
     right:0%;
     background-color: #4466c9;
 }
-.attr_cloudy{ 
+.attr_cloudy{
     top: 27%;
     right: 16%;
     background-color: #fcec64;
     z-index: 4;
 }
-.attr_deg2{ 
+.attr_deg2{
     top:60%;
     left:10%;
     background-color:#6ca3ff;
     z-index: 4;
 }
-.attr_sun2{ 
+.attr_sun2{
     top: 20%;
     right: 14%;
     background-color: #f2a14e;
     z-index: 4;
 }
-.attr_deg3{ 
+.attr_deg3{
     top:60%;
     left:13%;
     background-color:#fc6a42;
@@ -1140,7 +1140,7 @@ Screen01 Section style
     background-color: #b8faee;
     z-index: 4;
 }
-.attr_deg4{ 
+.attr_deg4{
     top:60%;
     left:13%;
     background-color:#7693c8;
@@ -1171,7 +1171,7 @@ Screen01 Section style
 .screen03_content ul li:nth-child(1),
 .screen02_content ul li:nth-child(1),
 .screen01_content ul li:nth-child(1){
-    z-index: 2; 
+    z-index: 2;
 }
 .screen03_content ul li:nth-child(2),
 .screen02_content ul li:nth-child(2),
