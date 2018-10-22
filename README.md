@@ -2,8 +2,8 @@
 App that puts your phone into Silent mode when you need it to, automatically.
 Trust me this is not even the basic introduction of what it is. More details below.
 # Why DnD?
-Remember those moments when you are on the road, your phone beeps and that is when you realise your phone should have been in Silent mode but it is not (which becomes obvious now), and then hits the irresistable urge to pick up your phone.
-You are not alone, almost all people experience this. It is this exact situation that endagers people. DnD solves this problem by magically putting your phone into silent mode when you start driving.
+Remember those moments when you are on the road, your phone beeps and that is when you realize your phone should have been in Silent mode but it is not (which becomes obvious now), and then hits the irresistible urge to pick up your phone.
+You are not alone, almost all people experience this. It is this exact situation that endangers people. DnD solves this problem by magically putting your phone into silent mode when you start driving.
 # codefundo++
 DnD is being developed for [codefundo++](http://codefundo.io) which sets the motive to predict and prepare for natural disasters. 
 <br>
@@ -23,6 +23,6 @@ Before joining this community, make sure you check the [code of conduct page](CO
 # The team
 - [S.Ben Stewart](https://github.com/sbenstewart)
 - [G.Santhosh](https://github.com/gsanthosh98)
-- [Naveen Kumar](https://github.com/muthunaveen555)
+- [M.Naveen Kumar](https://github.com/muthunaveen555)
 <br>
 <b>Have a great day :)</b>
