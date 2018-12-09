@@ -1,42 +1,71 @@
 package info.androidhive.activityrecognition;
 
+import android.Manifest;
+import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Handler;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneStateListener;
+import android.telephony.SmsManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.gms.location.DetectedActivity;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
-
+    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0 ;
     private String TAG = MainActivity.class.getSimpleName();
-    BroadcastReceiver broadcastReceiver;
-
+    BroadcastReceiver broadcastReceiver,broadcastWidget;
+    public String phonenumber,message="Hello World!";
     private TextView txtActivity, txtConfidence;
     private ImageView imgActivity;
     private Button btnStartTrcking, btnStopTracking;
+    private DetectedActivitiesIntentService bg1;
+    private BackgroundDetectedActivitiesService bg2;
+    Intent mServiceIntent,mServiceIntent2;
+    private  Boolean stop=true;
+
+    Context ctx;
+    public Context getCtx() {
+        return ctx;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Thread.setDefaultUncaughtExceptionHandler(new MyExceptionHandler(this));
+        if (getIntent().getBooleanExtra("crash", false)) {
+            Toast.makeText(this, "App restarted after crash", Toast.LENGTH_SHORT).show();
+        }
 
         txtActivity = findViewById(R.id.txt_activity);
         txtConfidence = findViewById(R.id.txt_confidence);
         imgActivity = findViewById(R.id.img_activity);
 
 
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggle_button);
+        final ToggleButton toggle = (ToggleButton) findViewById(R.id.toggle_button);
         toggle.setChecked(true);
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -45,6 +74,79 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     stopTracking();
                 }
+            }
+        });
+        final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+
+        final FloatingActionButton delaysmall = (FloatingActionButton) findViewById(R.id.delaysmall);
+        final FloatingActionButton delaymedium = (FloatingActionButton) findViewById(R.id.delaymedium);
+        final FloatingActionButton delaylarge = (FloatingActionButton) findViewById(R.id.delaylarge);
+        final FloatingActionButton delaysample = (FloatingActionButton) findViewById(R.id.delaysample);
+        delaysmall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    toggle.setChecked(false);
+                    stopTracking();
+                    stop = true;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            toggle.setChecked(true);
+                            startTracking();
+                        }
+                    },30*60*1000);
+                    menuMultipleActions.collapse();
+                }
+            });
+
+        delaymedium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggle.setChecked(false);
+                stopTracking();
+                stop = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toggle.setChecked(true);
+                        startTracking();
+                    }
+                },60*60*1000);
+                menuMultipleActions.collapse();
+            }
+        });
+
+        delaylarge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggle.setChecked(false);
+                stopTracking();
+                stop = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toggle.setChecked(true);
+                        startTracking();
+                    }
+                },2*60*60*1000);
+                menuMultipleActions.collapse();
+            }
+        });
+
+        delaysample.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggle.setChecked(false);
+                stopTracking();
+                stop = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toggle.setChecked(true);
+                        startTracking();
+                    }
+                },5*1000); //5 seconds
+                menuMultipleActions.collapse();
             }
         });
 
@@ -60,9 +162,29 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        broadcastWidget =new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+             startTracking();
+            }
+        };
+
         startTracking();
     }
 
+  /*  @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : Objects.requireNonNull(manager).getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                Log.i ("isMyServiceRunning?", true+"");
+                return true;
+            }
+        }
+        Log.i ("isMyServiceRunning?", false+"");
+        return false;
+    }
+*/
     private void handleUserActivity(int type, int confidence) {
         String label = getString(R.string.activity_unknown);
         int icon = R.drawable.ic_still;
@@ -140,5 +262,10 @@ public class MainActivity extends AppCompatActivity {
     private void stopTracking() {
         Intent intent = new Intent(MainActivity.this, BackgroundDetectedActivitiesService.class);
         stopService(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

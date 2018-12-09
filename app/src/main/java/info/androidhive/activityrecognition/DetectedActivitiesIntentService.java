@@ -30,6 +30,7 @@ public class DetectedActivitiesIntentService  extends IntentService {
         NotificationManager notificationManager =
                 (NotificationManager) getBaseContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
+        assert notificationManager != null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && !notificationManager.isNotificationPolicyAccessGranted()) {
 
@@ -41,12 +42,14 @@ public class DetectedActivitiesIntentService  extends IntentService {
         }
         AudioManager mAlramMAnager = (AudioManager) getBaseContext().getSystemService(Context.AUDIO_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            assert mAlramMAnager != null;
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_MUTE, 0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_ALARM, AudioManager.ADJUST_MUTE, 0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_MUTE, 0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_RING, AudioManager.ADJUST_MUTE, 0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_SYSTEM, AudioManager.ADJUST_MUTE, 0);
         } else {
+            assert mAlramMAnager != null;
             mAlramMAnager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
             mAlramMAnager.setStreamMute(AudioManager.STREAM_ALARM, true);
             mAlramMAnager.setStreamMute(AudioManager.STREAM_MUSIC, true);
@@ -65,6 +68,7 @@ public class DetectedActivitiesIntentService  extends IntentService {
         NotificationManager notificationManager =
                 (NotificationManager) getBaseContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
+        assert notificationManager != null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && !notificationManager.isNotificationPolicyAccessGranted()) {
 
@@ -76,12 +80,14 @@ public class DetectedActivitiesIntentService  extends IntentService {
         }
         AudioManager mAlramMAnager = (AudioManager) getBaseContext().getSystemService(Context.AUDIO_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            assert mAlramMAnager != null;
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_UNMUTE, 0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_ALARM, AudioManager.ADJUST_UNMUTE, 0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_UNMUTE,0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_RING, AudioManager.ADJUST_UNMUTE, 0);
             mAlramMAnager.adjustStreamVolume(AudioManager.STREAM_SYSTEM, AudioManager.ADJUST_UNMUTE, 0);
         } else {
+            assert mAlramMAnager != null;
             mAlramMAnager.setStreamMute(AudioManager.STREAM_NOTIFICATION, false);
             mAlramMAnager.setStreamMute(AudioManager.STREAM_ALARM, false);
             mAlramMAnager.setStreamMute(AudioManager.STREAM_MUSIC, false);
@@ -122,6 +128,7 @@ public class DetectedActivitiesIntentService  extends IntentService {
 
         Log.i(TAG, "Detected activity: " + mostProbableActivity.getType() + ", " + mostProbableActivity.getConfidence());
         broadcastActivity(mostProbableActivity);
+        //if(mostProbableActivity.getType() == DetectedActivity.TILTING || mostProbableActivity.getType() == DetectedActivity.STILL)
         if(mostProbableActivity.getType() == DetectedActivity.IN_VEHICLE || mostProbableActivity.getType() == DetectedActivity.ON_BICYCLE)
         {
             MuteAudio();

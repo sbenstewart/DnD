@@ -9,4 +9,6 @@
     <string name="activity_walking">walking</string>
     <string name="activity_unknown">Unknown</string>
     <string name="toggle_button">ToggleButton</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

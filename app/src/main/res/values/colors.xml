@@ -2,5 +2,19 @@
 <resources>
     <color name="colorPrimary">#00ad93</color>
     <color name="colorPrimaryDark">#006655</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="main_color">#ff2b00</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="red">#E6171F</color>
+    <color name="green">#00e676</color>
+    <color name="splash">#F7922E</color>
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
 </resources>

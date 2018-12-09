@@ -2,6 +2,7 @@ package info.androidhive.activityrecognition;
 
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
@@ -23,13 +24,14 @@ public class BackgroundDetectedActivitiesService extends Service {
     private ActivityRecognitionClient mActivityRecognitionClient;
 
     IBinder mBinder = new BackgroundDetectedActivitiesService.LocalBinder();
-
     public class LocalBinder extends Binder {
         public BackgroundDetectedActivitiesService getServerInstance() {
             return BackgroundDetectedActivitiesService.this;
         }
     }
-
+   public  BackgroundDetectedActivitiesService(Context applicationContext){
+        super();
+   }
     public BackgroundDetectedActivitiesService() {
 
     }
