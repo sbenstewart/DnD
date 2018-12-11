@@ -2,6 +2,7 @@
 App that puts your phone into Silent mode when you need it to, automatically.
 Trust me this is not even the basic introduction of what it is. More details below.
 <br>
+<br>
 [A video has also been made.](https://www.youtube.com/watch?v=6D0tAbdHJFk)
 # Why DnD?
 Remember those moments when you are on the road, your phone beeps and that is when you realize your phone should have been in Silent mode but it is not (which becomes obvious now), and then hits the irresistible urge to pick up your phone.
