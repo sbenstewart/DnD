@@ -29,13 +29,8 @@ public class MainActivity extends AppCompatActivity {
     BroadcastReceiver broadcastReceiver,broadcastWidget;
     private TextView txtActivity, txtConfidence;
     private ImageView imgActivity;
-    Intent mServiceIntent,mServiceIntent2;
     private  Boolean stop=true;
 
-    Context ctx;
-    public Context getCtx() {
-        return ctx;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
