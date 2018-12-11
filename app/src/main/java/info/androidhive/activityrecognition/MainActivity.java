@@ -1,23 +1,14 @@
 package info.androidhive.activityrecognition;
 
-import android.Manifest;
-import android.app.ActivityManager;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.telephony.PhoneStateListener;
-import android.telephony.SmsManager;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,15 +25,10 @@ import com.google.android.gms.location.DetectedActivity;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0 ;
     private String TAG = MainActivity.class.getSimpleName();
     BroadcastReceiver broadcastReceiver,broadcastWidget;
-    public String phonenumber,message="Hello World!";
     private TextView txtActivity, txtConfidence;
     private ImageView imgActivity;
-    private Button btnStartTrcking, btnStopTracking;
-    private DetectedActivitiesIntentService bg1;
-    private BackgroundDetectedActivitiesService bg2;
     Intent mServiceIntent,mServiceIntent2;
     private  Boolean stop=true;
 
@@ -172,19 +158,7 @@ public class MainActivity extends AppCompatActivity {
         startTracking();
     }
 
-  /*  @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private boolean isMyServiceRunning(Class<?> serviceClass) {
-        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : Objects.requireNonNull(manager).getRunningServices(Integer.MAX_VALUE)) {
-            if (serviceClass.getName().equals(service.service.getClassName())) {
-                Log.i ("isMyServiceRunning?", true+"");
-                return true;
-            }
-        }
-        Log.i ("isMyServiceRunning?", false+"");
-        return false;
-    }
-*/
+
     private void handleUserActivity(int type, int confidence) {
         String label = getString(R.string.activity_unknown);
         int icon = R.drawable.ic_still;
